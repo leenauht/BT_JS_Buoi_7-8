@@ -1,7 +1,6 @@
-// Tổng các số dương trong mảng
-
 /**
- * - Đầu vào: mảng arr
+ * Cho người dùng nhập vào các số nguyên và lưu trữ trong mảng và xuất ra mảng đó
+ * - Đầu vào: mảng arr = []
  * - Xử lý: - dom lấy giá trị nhập vào n
  *          - arr.push(n*1)
  *
@@ -64,13 +63,13 @@ function countPositiveNumbers() {
   document.getElementById("txtCount").innerHTML = count;
 }
 
-/**
- * Tìm số nhỏ nhất trong mảng
+/**m số nhỏ nhất trong mảng
+ * Tì
  *
  * - Đầu vào: Mảng arr
  * - Xử lý:
  *        + let min = arr[0]
- *        + duyệt mảng arr: for (let i = 0; i < arr.length; i++)
+ *        + duyệt mảng arr: for (let i = 1; i < arr.length; i++)
  *        + if (arr[i] < min) => true
  *           => min = arr[i]
  *
@@ -105,18 +104,31 @@ function minimumNumber() {
  */
 
 function smallestPosiviteNumber() {
-  let arrPosivite = [];
+  // let arrPosivite = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (arr[i] > 0) {
+  //     arrPosivite.push(arr[i]);
+  //   }
+  // }
+  // if (arrPosivite.length === 0) {
+  //   return (document.getElementById("txtMinPosivite").innerHTML = "Null");
+  // }
+  // let min = arrPosivite[0];
+  // for (let i = 1; i < arrPosivite.length; i++) {
+  //   if (arrPosivite[i] < min) {
+  //     min = arrPosivite[i];
+  //   }
+  // }
+
+  let smallest = Infinity;
+
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 0) {
-      arrPosivite.push(arr[i]);
+    if (arr[i] > 0 && arr[i] < smallest) {
+      smallest = arr[i];
     }
   }
-  let min = arrPosivite[0];
-  for (let i = 1; i < arrPosivite.length; i++) {
-    if (arrPosivite[i] < min) {
-      min = arrPosivite[i];
-    }
-  }
+  const min = smallest === Infinity ? "Null" : smallest;
+
   document.getElementById("txtMinPosivite").innerHTML = min;
 }
 
@@ -186,9 +198,7 @@ function swapPositions() {
   arr[index_1] = arr[index_2];
   arr[index_2] = temp;
 
-  for (let i = 0; i < arr.length; i++) {
-    document.getElementById("txtChange").innerHTML = arr.join(" ; ");
-  }
+  document.getElementById("txtChange").innerHTML = arr.join(" ; ");
 }
 
 /**
@@ -253,13 +263,11 @@ function primeNumber() {
   for (let i = 0; i < arr.length; i++) {
     let firstPrime = isPrime(arr[i]);
     if (firstPrime) {
-      document.getElementById("pTxt").innerHTML =
-        "Số nguyên tố đầu tiên trong mảng:";
+      document.getElementById("pTxt").innerHTML = "Số nguyên tố đầu tiên:";
       document.getElementById("txtPrime").innerHTML = arr[i];
       break;
     } else {
-      document.getElementById("pTxt").innerHTML =
-        "Mảng không có số nguyên tố nào:";
+      document.getElementById("pTxt").innerHTML = "Không có số nguyên tố nào:";
       document.getElementById("txtPrime").innerHTML = -1;
     }
   }
