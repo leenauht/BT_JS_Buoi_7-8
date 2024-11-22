@@ -2,7 +2,10 @@
  * Cho người dùng nhập vào các số nguyên và lưu trữ trong mảng và xuất ra mảng đó
  * - Đầu vào: mảng arr = []
  * - Xử lý: - dom lấy giá trị nhập vào n
- *          - arr.push(n*1)
+ *          - if (n === "") true => alert("Không được để trống ô input!")
+ *          - if (Number.isInteger(n * 1))
+ *              true => arr.push(n * 1) => xuất ra màn hình mảng arr
+ *          - false => alert("Số bạn nhập không phải là số nguyên!")
  *
  * - Đầu ra: Xuất ra màn hình mảng arr
  */
@@ -12,9 +15,11 @@ function addNumber() {
   const n = document.getElementById("inputInteger").value;
   if (n === "") {
     alert("Không được để trống ô input!");
-  } else {
+  } else if (Number.isInteger(n * 1)) {
     arr.push(n * 1);
     document.getElementById("txtArray").innerHTML = arr.join(" ; ");
+  } else {
+    alert("Số bạn nhập không phải là số nguyên!");
   }
 }
 
